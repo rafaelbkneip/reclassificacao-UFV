@@ -13,7 +13,7 @@ options = Options()
 options.add_experimental_option("detach", True)
 
 navegador = webdriver.Chrome(ChromeDriverManager().install(), options=options)
-navegador.get("https://www2.pse.ufv.br/wp-content/uploads/2023/02/sisu2023-chamada-1.htm")
+navegador.get("https://www2.pse.ufv.br/wp-content/uploads/2023/03/sisu2023-chamada-2.htm")
 
 #Quadro inicial com os cursos que apresentam novos alunos, separados por campus
 lista_cursos = navegador.find_elements(By.ID, 'indice')
@@ -80,6 +80,7 @@ for j in range(3, n_cursos+3):
 book = xlsxwriter.Workbook('')     
 sheet = book.add_worksheet()  
 
+#Cabeçalho do arquivo
 sheet.write(0, 0, 'Inscrição')
 sheet.write(0, 1, 'Nome')
 sheet.write(0, 2, 'Aluno')
@@ -87,11 +88,7 @@ sheet.write(0, 3, 'Pontos')
 sheet.write(0, 4, 'Modalidade inscrição')
 sheet.write(0, 5, 'Modalidade convocação')
 
-print(len(inscricao))
-print(len(nome))
-print(len(curso_aluno))
-print(len(modalidade_inscricao))
-
+#Todas as listas possuem o mesmo número de elementos
 for i in range(len(inscricao)):
     sheet.write(i+1, 0, inscricao[i])
     sheet.write(i+1, 1, nome[i])
