@@ -13,6 +13,9 @@ options = Options()
 options.add_experimental_option("detach", True)
 
 navegador = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+
+#O programa pode ser utilizado para qualquer página de reclassificações da UFV no ano de 2023, uma vez que todas apresentam a mesma estrutura
+#Nesse caso, os dados são referentes a segunda reclassificação
 navegador.get("https://www2.pse.ufv.br/wp-content/uploads/2023/03/sisu2023-chamada-2.htm")
 
 #Quadro inicial com os cursos que apresentam novos alunos, separados por campus
